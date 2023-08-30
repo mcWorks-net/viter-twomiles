@@ -9,7 +9,7 @@ import TableLoading from "../../../../../partials/spinners/TableLoading.jsx";
 import ModalConfirm from "../../../../../partials/modals/ModalConfirm.jsx";
 import ModalDeleteAndRestore from "../../../../../partials/modals/ModalDeleteAndRestore.jsx";
 import Footer from "../../../../../partials/Footer.jsx";
-const OthersTable = () => {
+const OthersTable = ({ setIsShow, setItemEdit }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isArchive, setIsArchive] = React.useState(false);
   const [isDelete, setIsDelete] = React.useState(false);
@@ -36,6 +36,12 @@ const OthersTable = () => {
   const inActiveRoles = others.filter((item) => {
     return item.status === 0;
   });
+
+  const handleEdit = (item) => {
+    setItemEdit(item);
+    setIsShow(true);
+  };
+
   React.useEffect(() => {
     function loadData() {
       setIsLoading(true);
@@ -77,7 +83,7 @@ const OthersTable = () => {
                   {item.status === 1 ? (
                     <ul className="flex items-center gap-4">
                       <li className="tooltip" data-tooltip="Edit">
-                        <button>
+                        <button onClick={() => handleEdit(item)}>
                           <AiFillEdit />
                         </button>
                       </li>

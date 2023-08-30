@@ -8,6 +8,8 @@ import ModalAddRoles from "./ModalAddSystem";
 const System = () => {
   const [isShow, setIsShow] = React.useState(false);
   const handleAddRoles = () => setIsShow(true);
+
+  const [itemEdit, setItemEdit] = React.useState([]);
   return (
     <>
       <Header />
@@ -23,10 +25,16 @@ const System = () => {
               Add
             </button>
           </div>
-          <RolesTable />
+          <RolesTable setIsShow={setIsShow} setItemEdit={setItemEdit} />
         </main>
       </section>
-      {isShow && <ModalAddRoles setIsShow={setIsShow} />}
+      {isShow && (
+        <ModalAddRoles
+          setIsShow={setIsShow}
+          itemEdit={itemEdit}
+          setItemEdit={setItemEdit}
+        />
+      )}
     </>
   );
 };

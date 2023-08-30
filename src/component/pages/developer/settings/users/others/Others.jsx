@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import Header from "../../../../../partials/Header";
 // import Breadcrumbs from "../../../../../partials/Breadcrumbs";
 // import Navigation from "../../../../../partials/Navigation";
@@ -10,7 +10,11 @@ import Breadcrumbs from "../../../../../partials/Breadcrumbs";
 
 const Others = () => {
   const [isShow, setIsShow] = React.useState(false);
+
+  const [itemEdit, setItemEdit] = useState([]);
+
   const handleAddOthers = () => setIsShow(true);
+
   return (
     <>
       <Header />
@@ -29,10 +33,16 @@ const Others = () => {
               Add
             </button>
           </div>
-          <OthersTable />
+          <OthersTable setIsShow={setIsShow} setItemEdit={setItemEdit} />
         </main>
       </section>
-      {isShow && <ModalAddOthers setIsShow={setIsShow} />}
+      {isShow && (
+        <ModalAddOthers
+          setIsShow={setIsShow}
+          itemEdit={itemEdit}
+          setItemEdit={setItemEdit}
+        />
+      )}
     </>
   );
 };

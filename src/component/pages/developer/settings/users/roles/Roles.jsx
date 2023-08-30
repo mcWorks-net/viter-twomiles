@@ -7,10 +7,7 @@ import ModalAddRoles from "./ModalAddRoles";
 
 const Roles = () => {
   const [isShow, setIsShow] = React.useState(false);
-
   const [itemEdit, setItemEdit] = useState([]);
-
-  console.log(itemEdit);
 
   const handleAddRoles = () => setIsShow(true);
   return (
