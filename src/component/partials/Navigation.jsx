@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMicrosoft } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
+import { LiaToolsSolid } from "react-icons/lia";
+import { AiOutlineFieldTime } from "react-icons/ai";
+import { BsFillPersonLinesFill } from "react-icons/bs";
+import { MdGroups2 } from "react-icons/md";
+import { FiSettings } from "react-icons/fi";
 
 const Navigation = ({ menu, submenu }) => {
   const [settingDropdown, setSettingDropdown] = useState(false);
@@ -12,34 +18,37 @@ const Navigation = ({ menu, submenu }) => {
         <ul>
           <li className="nav__link">
             <Link to="">
-              <FaMicrosoft /> Home
+              <AiOutlineHome /> Home
             </Link>
           </li>
           <li className="nav__link">
             <Link href="">
-              <FaMicrosoft /> Tools
+              <LiaToolsSolid />
+              Tools
             </Link>
           </li>
           <li className="nav__link">
             <Link href="">
-              <FaMicrosoft /> Time Entry
+              <AiOutlineFieldTime />
+              Time Entry
             </Link>
           </li>
           <li className="nav__link">
             <Link href="">
-              <FaMicrosoft /> Staff
+              <BsFillPersonLinesFill /> Staff
             </Link>
           </li>
           <li className="nav__link">
             <Link href="">
-              <FaMicrosoft /> Client
+              <MdGroups2 />
+              Client
             </Link>
           </li>
           <li
             className={menu === "settings" ? "nav__link active" : "nav__link"}
           >
             <button onClick={handleSettingDropdown}>
-              <FaMicrosoft />
+              <FiSettings />
               Settings
             </button>
             {settingDropdown && (

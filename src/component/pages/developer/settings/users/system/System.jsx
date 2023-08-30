@@ -15,7 +15,7 @@ const System = () => {
         <aside>
           <Navigation />
         </aside>
-        <main className="pr-10">
+        <main className="px-4 lg:pr-10 overflow-hidden">
           <Breadcrumbs />
           <div className="flex justify-between items-center my-5">
             <h1>System</h1>

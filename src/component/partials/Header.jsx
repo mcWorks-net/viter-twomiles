@@ -5,6 +5,7 @@ import {
   MdOutlineAccountCircle,
   MdOutlineLogout,
 } from "react-icons/md";
+import BurgerBtn from "./BurgerBtn";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -30,10 +31,16 @@ const Header = () => {
     document.addEventListener("click", handleClickOutside);
   });
 
+  
+
+
   return (
     <>
       <header className="flex justify-between py-2 px-6 relative">
-        <Logo />
+        <div className="flex items-center gap-3">
+          <BurgerBtn />
+          <Logo />
+        </div>
         <div className="flex items-center gap-3" onClick={handleShow} ref={ref}>
           <ul className="leading-snug">
             <li>Monmon</li>

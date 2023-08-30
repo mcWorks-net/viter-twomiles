@@ -46,7 +46,7 @@ const SystemTable = () => {
     loadData();
   }, []);
   return (
-    <div>
+    <div className="overflox-x-scroll overflow-hidden">
       {isLoading ? (
         <TableLoading count={15} cols={3} />
       ) : (

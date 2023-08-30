@@ -12,7 +12,7 @@ const Users = () => {
         <aside>
           <Navigation />
         </aside>
-        <main className="pr-10">
+        <main className="md:pr-10 mx-4 lg:mx-0">
           <Breadcrumbs />
           <div className="flex justify-between items-center my-5">
             <h1>Users</h1>

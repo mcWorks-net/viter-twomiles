@@ -176,6 +176,9 @@
   .loading-bar::after {
     @apply content-[''] absolute top-0 left-0 w-[180%] h-full bg-gradient-to-r from-transparent via-[#eeeeee] to-transparent animate-loading;
   }
+  .toggleBtn span {
+    @apply w-8 block h-1 bg-secondary mb-1 ;
+  }
 }
 
 @layer utilities {
