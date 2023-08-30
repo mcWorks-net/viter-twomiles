@@ -13,7 +13,7 @@ import Nodata from "../../../../../partials/Nodata.jsx";
 import Loadmore from "../../../../../partials/Loadmore.jsx";
 import SearchBar from "../../../../../partials/SearchBar.jsx";
 
-const RolesTable = () => {
+const RolesTable = ({ setIsShow, setItemEdit }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isArchive, setIsArchive] = React.useState(false);
   const [isDelete, setIsDelete] = React.useState(false);
@@ -40,6 +40,12 @@ const RolesTable = () => {
   const inActiveRoles = roles.filter((item) => {
     return item.status === 0;
   });
+
+  const handleEdit = (item) => {
+    setItemEdit(item);
+    setIsShow(true);
+  };
+
   React.useEffect(() => {
     function loadData() {
       setIsLoading(true);
@@ -96,7 +102,7 @@ const RolesTable = () => {
                       {item.status === 1 ? (
                         <ul className="flex items-center gap-4">
                           <li className="tooltip" data-tooltip="Edit">
-                            <button>
+                            <button onClick={() => handleEdit(item)}>
                               <AiFillEdit />
                             </button>
                           </li>

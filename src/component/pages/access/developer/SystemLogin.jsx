@@ -17,6 +17,9 @@ const SystemLogin = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
+    setInterval(() => {
+      setIsValid(true);
+    }, 5000);
     // setIsValid(true);
   };
 
@@ -30,12 +33,16 @@ const SystemLogin = () => {
           <h2 className="mb-0 my-5 text-center text-lg">System Login</h2>
           <form action="">
             <div className="form__wrap">
-              <label htmlFor="">Email</label> <input type="email" />
+              <label htmlFor="">Email</label>
+              <input type="email" disabled={isLoading ? true : false} />
               <span className="error-show">*required</span>
             </div>
             <div className="form__wrap">
-              <label htmlFor="">Password</label>{" "}
-              <input type={isPasswordShow ? "text" : "password"} />
+              <label htmlFor="">Password</label>
+              <input
+                type={isPasswordShow ? "text" : "password"}
+                disabled={isLoading ? true : false}
+              />
               <span className="error-show">*required</span>
               <button
                 type="button"
@@ -46,13 +53,18 @@ const SystemLogin = () => {
               </button>
             </div>
 
-            <button className="btn btn--primary w-full" onClick={handleSubmit}>
+            <button
+              type="button"
+              className="btn btn--primary w-full"
+              onClick={handleSubmit}
+              disabled={isLoading ? true : false}
+            >
               login {isLoading ? <SpinnerButton /> : ""}
             </button>
 
             <Link
               to="/system/forgot-password"
-              className="text-primary block mt-6 text-sm"
+              className="text-primary block mt-6 text-sm text-center"
             >
               Forgot Password
             </Link>

@@ -177,7 +177,12 @@
     @apply content-[''] absolute top-0 left-0 w-[180%] h-full bg-gradient-to-r from-transparent via-[#eeeeee] to-transparent animate-loading;
   }
   .toggleBtn span {
-    @apply w-8 block h-1 bg-secondary mb-1 ;
+    @apply w-8 block h-1 bg-secondary mb-1;
+  }
+  .btn:disabled,
+  input[type="password"]:disabled,
+  input[type="email"]:disabled {
+    @apply bg-gray-300 hover:bg-gray-300 cursor-not-allowed;
   }
 }
 

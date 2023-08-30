@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../../../../partials/Header";
 import Breadcrumbs from "../../../../../partials/Breadcrumbs";
 import Navigation from "../../../../../partials/Navigation";
@@ -7,6 +7,11 @@ import ModalAddRoles from "./ModalAddRoles";
 
 const Roles = () => {
   const [isShow, setIsShow] = React.useState(false);
+
+  const [itemEdit, setItemEdit] = useState([]);
+
+  console.log(itemEdit);
+
   const handleAddRoles = () => setIsShow(true);
   return (
     <>
@@ -23,10 +28,16 @@ const Roles = () => {
               Add
             </button>
           </div>
-          <RolesTable />
+          <RolesTable setIsShow={setIsShow} setItemEdit={setItemEdit} />
         </main>
       </section>
-      {isShow && <ModalAddRoles setIsShow={setIsShow} />}
+      {isShow && (
+        <ModalAddRoles
+          setIsShow={setIsShow}
+          itemEdit={itemEdit}
+          setItemEdit={setItemEdit}
+        />
+      )}
     </>
   );
 };
